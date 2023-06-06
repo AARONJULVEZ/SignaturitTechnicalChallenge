@@ -2,7 +2,7 @@
 using Domain.Entities;
 using NUnit.Framework;
 
-namespace Domain.Test.Entities
+namespace Domain.Testing.Entities
 {
     [TestFixture]
     public class ContractTest

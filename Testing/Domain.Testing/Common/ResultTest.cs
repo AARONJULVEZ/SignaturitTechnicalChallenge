@@ -1,7 +1,7 @@
 ﻿using Domain.Common;
 using NUnit.Framework;
 
-namespace Domain.Test.Common
+namespace Domain.Testing.Common
 {
     [TestFixture]
     public class ResultTest
