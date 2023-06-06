@@ -23,5 +23,22 @@ namespace Application.Services
 
             return new SignatureVerifyResponse(plaintiffContract.Value, defendantContract.Value);
         }
+
+        public Result<FillMissingSignatureResponse> FillMissingSignature(FillMissingSignatureRequest request)
+        {
+            var plaintiffContract = Contract.Create(request.Plaintiff);
+            if (plaintiffContract.IsFail)
+            {
+                return Result<FillMissingSignatureResponse>.Fail(null, plaintiffContract.Error);
+            }
+
+            var defendantContract = Contract.Create(request.Defendant);
+            if (defendantContract.IsFail)
+            {
+                return Result<FillMissingSignatureResponse>.Fail(null, defendantContract.Error);
+            }
+
+            return FillMissingSignatureResponse.Create(plaintiffContract.Value, defendantContract.Value);
+        }
     }
 }
