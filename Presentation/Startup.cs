@@ -1,4 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Application.Services;
+using Microsoft.OpenApi.Models;
 
 namespace Presentation
 {
@@ -29,6 +30,8 @@ namespace Presentation
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ContractsService>();
+
             services.AddControllers();
 
             AddSwagger(services);
